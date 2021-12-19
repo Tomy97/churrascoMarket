@@ -1,14 +1,12 @@
 <template>
   <div class="card-center">
     <v-card
-        :loading="loading"
         class="mx-auto my-12"
-        max-width="374"
+        max-width="500"
     >
       <v-card-text>
         <v-form
           ref="form"
-          v-model="valid"
           lazy-validation
         >
           <v-row>
@@ -29,12 +27,9 @@
       </v-card-text>
       <v-card-actions>
          <v-row>
-           <v-col col="12" class="d-flex justify-end" >
+           <v-col col="12" md="12" class="d-flex justify-end" >
              <v-btn
-                 :disabled="!valid"
-                 color="error"
-                 depressed
-                 elevation="13"
+                 color="primary"
                  block
                  @click="onSubmit"
              >
@@ -55,7 +50,6 @@ export default {
     FormPassword
   },
   data: () => ({
-    valid: true,
     email: '',
     password: '',
 }),

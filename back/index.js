@@ -1,4 +1,12 @@
-import app from './app';
+const express = require('express');
+const cors = require('cors');
+const userAuth = require('./routes/users');
 
-app.listener(3000)
-console.log('Server is running on port 3000');
+const app = express();
+app.use(cors());
+
+const port = 3000;
+
+// Routes
+app.use(require('./routes/index'));
+app.use('/users', userAuth);

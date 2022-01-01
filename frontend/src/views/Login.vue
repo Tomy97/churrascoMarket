@@ -1,5 +1,5 @@
 <template>
-  <div class="card-center">
+  <div class="card-center ">
     <v-card
         class="mx-auto my-12"
         max-width="500"
@@ -27,10 +27,9 @@
       </v-card-text>
       <v-card-actions>
          <v-row>
-           <v-col col="12" md="12" class="d-flex justify-end" >
+           <v-col col="6" md="12" class="d-flex justify-end" >
              <v-btn
                  color="primary"
-                 block
                  @click="onSubmit"
              >
                Log in
@@ -63,6 +62,7 @@ export default {
 </script>
 <style scoped>
 .card-center {
+  min-height: 30vh;
   display: flex;
   justify-content: center;
   align-content: center;

@@ -3,13 +3,13 @@
 </template>
 
 <script>
-  import TableProducts from "../components/TableProducts";
+import TableProducts from '@/components/TableProducts.vue'
 
-  export default {
-    name: 'Home',
+export default {
+  name: 'Home',
 
-    components: {
-      TableProducts,
-    },
-  }
+  components: {
+    TableProducts,
+  },
+}
 </script>

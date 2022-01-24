@@ -4,15 +4,9 @@
       <template v-slot:default>
         <thead>
           <tr>
-            <th class="text-center">
-              Name
-            </th>
-            <th class="text-center">
-              Precios
-            </th>
-            <th class="text-center">
-              Divisa
-            </th>
+            <th class="text-center">Name</th>
+            <th class="text-center">Precios</th>
+            <th class="text-center">Divisa</th>
             <th class="text-center"></th>
           </tr>
         </thead>
@@ -22,7 +16,7 @@
             <td class="text-center">{{ i.precios }}</td>
             <td class="text-center">{{ i.divisa }}</td>
             <td class="text-center">
-              <v-btn color="secondary" @click="onClick(i.id)">
+              <v-btn color="secondary" @click.prevent="handleClick(i.id)">
                 Ver Producto
               </v-btn>
             </td>
@@ -38,41 +32,41 @@ export default {
     datos: [
       {
         id: 1,
-        name: 'Jamon',
+        name: "Jamon",
         precios: 123,
-        divisa: 'Dolar',
+        divisa: "Dolar",
       },
       {
         id: 2,
-        name: 'Queso',
+        name: "Queso",
         precios: 12,
-        divisa: 'Pesos',
+        divisa: "Pesos",
       },
       {
         id: 3,
-        name: 'Aceituna',
+        name: "Aceituna",
         precios: 54,
-        divisa: 'Dolar',
+        divisa: "Dolar",
       },
       {
         id: 4,
-        name: 'Valde',
+        name: "Valde",
         precios: 64,
-        divisa: 'Pesos',
+        divisa: "Pesos",
       },
     ],
   }),
   methods: {
-    onClick(id) {
-      console.log(id)
+    handleClick(id) {
+      console.log(id);
     },
   },
-}
+};
 </script>
 <style>
-.tableWidth {
-  width: 150rem;
-  height: 20rem;
-  border: thin solid rgba(0, 0, 0, 0.12);
-}
+  .tableWidth {
+    width: 150rem;
+    height: 20rem;
+    border: thin solid rgba(0, 0, 0, 0.12);
+  }
 </style>

@@ -1,7 +1,8 @@
 const router = require('express').Router();
 
-router.get('/', (req, res) => {
-  res.send('Hello World!');
+router.get('/', function(req, res, next) {
+  res.render('index', { title: 'Express' });
 });
-module.export = router;
+
+module.exports = router;
 

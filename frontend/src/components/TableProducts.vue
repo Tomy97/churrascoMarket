@@ -11,7 +11,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="i in datos" :key="i.id">
+          <tr v-for="i in datos" :key="i">
             <td class="text-center">{{ i.name }}</td>
             <td class="text-center">{{ i.precios }}</td>
             <td class="text-center">{{ i.divisa }}</td>

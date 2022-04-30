@@ -11,14 +11,17 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="i in datos" :key="i">
+          <tr v-for="i in datos" :key="i.id">
             <td class="text-center">{{ i.name }}</td>
             <td class="text-center">{{ i.precios }}</td>
             <td class="text-center">{{ i.divisa }}</td>
             <td class="text-center">
-              <v-btn color="secondary" @click.prevent="handleClick(i.id)">
-                Ver Producto
-              </v-btn>
+              <ModalComponent
+                title="Ver productos"
+                :name="i.name"
+                :divisa="i.divisa"
+                :price="i.precios"
+              />
             </td>
           </tr>
         </tbody>
@@ -27,46 +30,48 @@
   </v-container>
 </template>
 <script>
+import ModalComponent from './ModalComponent.vue'
 export default {
   data: () => ({
     datos: [
       {
         id: 1,
-        name: "Jamon",
+        name: 'Jamon',
         precios: 123,
-        divisa: "Dolar",
+        divisa: 'Dolar',
       },
       {
         id: 2,
-        name: "Queso",
+        name: 'Queso',
         precios: 12,
-        divisa: "Pesos",
+        divisa: 'Pesos',
       },
       {
         id: 3,
-        name: "Aceituna",
+        name: 'Aceituna',
         precios: 54,
-        divisa: "Dolar",
+        divisa: 'Dolar',
       },
       {
         id: 4,
-        name: "Valde",
+        name: 'Valde',
         precios: 64,
-        divisa: "Pesos",
+        divisa: 'Pesos',
       },
     ],
   }),
   methods: {
-    handleClick(id) {
-      console.log(id);
+    handleClick(i) {
+      console.log(i)
     },
   },
-};
+  components: { ModalComponent },
+}
 </script>
 <style>
-  .tableWidth {
-    width: 150rem;
-    height: 20rem;
-    border: thin solid rgba(0, 0, 0, 0.12);
-  }
+.tableWidth {
+  width: 150rem;
+  height: 20rem;
+  border: thin solid rgba(0, 0, 0, 0.12);
+}
 </style>

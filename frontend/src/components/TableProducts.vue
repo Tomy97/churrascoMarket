@@ -32,6 +32,7 @@
 <script>
 import ModalComponent from './ModalComponent.vue'
 export default {
+  components: { ModalComponent },
   data: () => ({
     datos: [
       {
@@ -60,18 +61,10 @@ export default {
       },
     ],
   }),
-  methods: {
-    handleClick(i) {
-      console.log(i)
-    },
-  },
-  components: { ModalComponent },
 }
 </script>
 <style>
 .tableWidth {
-  width: 150rem;
-  height: 20rem;
-  border: thin solid rgba(0, 0, 0, 0.12);
+  border: thin solid #0000001f;
 }
 </style>

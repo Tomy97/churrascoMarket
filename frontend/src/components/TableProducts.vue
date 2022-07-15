@@ -1,5 +1,12 @@
 <template>
   <v-container>
+    <template v-if="alert">
+      <AlertComponent
+        text="El producto se elimino correctamente"
+        color="green"
+        type="success"
+      />
+    </template>
     <v-row>
       <v-col cols="12" md="12">
         <v-simple-table class="tableWidth">
@@ -26,9 +33,14 @@
                   />
                 </td>
                 <td>
-                  <v-btn color="error" @click="handleDeleteProduct(i.id)">
-                    Eliminar Producto
-                  </v-btn>
+                  <template v-if="loading">
+                    <SpinnerComponent />
+                  </template>
+                  <template v-else>
+                    <v-btn color="error" @click="handleDeleteProduct(i.id)">
+                      Eliminar Producto
+                    </v-btn>
+                  </template>
                 </td>
               </tr>
             </tbody>
@@ -40,6 +52,8 @@
 </template>
 <script>
 import ModalComponent from "./ModalComponent.vue";
+import AlertComponent from "../components/AlertComponent.vue";
+import SpinnerComponent from "./SpinnerComponent.vue";
 export default {
   data: () => ({
     datos: [
@@ -68,17 +82,24 @@ export default {
         divisa: "Pesos",
       },
     ],
+    alert: false,
+    loading: false,
   }),
   methods: {
     handleClick(i) {
       console.log(i);
     },
     async handleDeleteProduct(id) {
+      this.alert = true;
+      this.loading = true;
       this.datos = await this.datos.filter((item) => item.id !== id);
-      console.log('se eliminooo!!! ');
+      setTimeout(() => {
+        this.alert = false;
+        this.loading = false;
+      }, 2000);
     },
   },
-  components: { ModalComponent },
+  components: { ModalComponent, AlertComponent, SpinnerComponent },
 };
 </script>
 <style>
